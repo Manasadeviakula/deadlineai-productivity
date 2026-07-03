@@ -2,6 +2,8 @@
 
 > **The Last-Minute Life Saver**  
 > A production-ready, full-stack AI-powered productivity companion built for hackathons to proactively help users plan, prioritize, breakdown, and complete tasks before deadlines are missed.
+> 🔗 **Live Demo:** [https://wondrous-bienenstitch-43d846.netlify.app/](https://wondrous-bienenstitch-43d846.netlify.app/)
+
 [![React](https://img.shields.io/badge/Frontend-React%2018%20%2B%20Vite-blue)](https://react.dev/)
 [![Tailwind CSS](https://img.shields.io/badge/Styling-Tailwind%20CSS-38bdf8)](https://tailwindcss.com/)
 [![Node.js](https://img.shields.io/badge/Backend-Node.js%20%2B%20Express-green)](https://nodejs.org/)
@@ -10,8 +12,6 @@
 [![Netlify](https://img.shields.io/badge/Deploy-Netlify-00AD9F)](https://wondrous-bienenstitch-43d846.netlify.app)
 
 ---
-## 🚀 Live Demo
-[DeadlineAI Planner](https://wondrous-bienenstitch-43d846.netlify.app/planner)
 
 ## 📖 Table of Contents
 - [✨ Key Features](#-key-features)
@@ -212,8 +212,23 @@ cd ..
 firebase deploy --only hosting
 ```
 
+### Deploy Frontend on Netlify
+To deploy the frontend to Netlify:
+1. Make sure `client/public/_redirects` is created with `/* /index.html 200` to support React Router SPA redirection.
+2. Build the application:
+   ```bash
+   cd client
+   npm run build
+   ```
+3. Deploy via Netlify CLI:
+   ```bash
+   npx netlify deploy --dir=client/dist --prod
+   ```
+   *Or link your GitHub repository to Netlify and configure the build command as `npm run build` and publish directory as `client/dist`.*
+
 ---
 
 ## 📝 License
 Distributed under the MIT License. Built with ❤️ for Hackathons.
 "# deadlineai-productivity" 
+
