@@ -8,6 +8,7 @@
 [![Gemini API](https://img.shields.io/badge/AI%20Engine-Google%20Gemini%201.5%20Flash-purple)](https://deepmind.google/technologies/gemini/)
 [![Firebase](https://img.shields.io/badge/Cloud-Firebase%20%26%20GCP-orange)](https://firebase.google.com/)
 [![Netlify](https://img.shields.io/badge/Deploy-Netlify-00AD9F)](https://wondrous-bienenstitch-43d846.netlify.app)
+[![Live Demo](https://img.shields.io/badge/Live-Demo-blue)](https://wondrous-bienenstitch-43d846.netlify.app/planner)
 
 ---
 
