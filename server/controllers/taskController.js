@@ -1,4 +1,4 @@
-import { db, isMockDB, mockDB } from '../firebase/firebaseAdmin.js';
+import { db, isMockDB, mockDB, saveMockDB } from '../firebase/firebaseAdmin.js';
 import { calendarService } from '../services/calendarService.js';
 
 export const taskController = {
@@ -35,6 +35,7 @@ export const taskController = {
 
     if (isMockDB) {
       mockDB.tasks.set(newTask.id, newTask);
+      saveMockDB();
     } else {
       const ref = await db.collection('Tasks').add(newTask);
       newTask.id = ref.id;
@@ -52,6 +53,7 @@ export const taskController = {
         const existing = mockDB.tasks.get(id);
         const updated = { ...existing, ...updates };
         mockDB.tasks.set(id, updated);
+        saveMockDB();
         return res.json({ success: true, task: updated });
       }
     } else {
@@ -67,6 +69,7 @@ export const taskController = {
 
     if (isMockDB) {
       mockDB.tasks.delete(id);
+      saveMockDB();
     } else {
       await db.collection('Tasks').doc(id).delete();
     }

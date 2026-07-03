@@ -1,0 +1,131 @@
+{
+  "users": [],
+  "tasks": [
+    [
+      "task_demo_1",
+      {
+        "id": "task_demo_1",
+        "userId": "demo_user_123",
+        "title": "Complete OS Assignment 3",
+        "description": "Implement page replacement algorithms (FIFO, LRU, Optimal) in C++",
+        "deadline": "2026-06-30T23:59:00Z",
+        "priority": "Critical",
+        "estimatedHours": 4,
+        "status": "pending",
+        "category": "College",
+        "createdAt": "2026-07-03T06:20:10.356Z"
+      }
+    ],
+    [
+      "task_demo_2",
+      {
+        "id": "task_demo_2",
+        "userId": "demo_user_123",
+        "title": "Design Hackathon Pitch Deck",
+        "description": "Create sleek slides for DeadlineAI presentation and prototype demo",
+        "deadline": "2026-07-01T18:00:00Z",
+        "priority": "High",
+        "estimatedHours": 3,
+        "status": "pending",
+        "category": "Projects",
+        "createdAt": "2026-07-03T06:20:10.363Z"
+      }
+    ],
+    [
+      "task_demo_3",
+      {
+        "id": "task_demo_3",
+        "userId": "demo_user_123",
+        "title": "Morning 30-min Workout",
+        "description": "Cardio and strength exercises",
+        "deadline": "2026-06-29T10:00:00Z",
+        "priority": "Medium",
+        "estimatedHours": 0.5,
+        "status": "completed",
+        "category": "Health",
+        "createdAt": "2026-07-03T06:20:10.363Z"
+      }
+    ],
+    [
+      "task_1783059880371",
+      {
+        "id": "task_1783059880371",
+        "userId": "demo_user_123",
+        "title": "Study for Algorithms Quiz",
+        "description": "Review Dynamic Programming and Graph Algorithms",
+        "deadline": "2026-07-05T06:00",
+        "priority": "Medium",
+        "estimatedHours": 22,
+        "status": "pending",
+        "category": "College",
+        "createdAt": "2026-07-03T06:24:40.371Z"
+      }
+    ]
+  ],
+  "plans": [],
+  "schedules": [
+    [
+      "demo_user_123_2026-07-03",
+      {
+        "productivityScoreForecast": 88,
+        "timeline": [
+          {
+            "timeSlot": "9:00 AM - 10:30 AM",
+            "activity": "Focus Sprint: Complete OS Assignment 3",
+            "type": "focus",
+            "taskId": "task_demo_1",
+            "priority": "Critical"
+          },
+          {
+            "timeSlot": "11:00 AM - 12:30 AM",
+            "activity": "Focus Sprint: Design Hackathon Pitch Deck",
+            "type": "focus",
+            "taskId": "task_demo_2",
+            "priority": "High"
+          },
+          {
+            "timeSlot": "01:00 PM - 01:45 PM",
+            "activity": "Lunch & Recharge Break",
+            "type": "break",
+            "taskId": null,
+            "priority": "Low"
+          },
+          {
+            "timeSlot": "1:00 PM - 2:30 PM",
+            "activity": "Focus Sprint: Study for Algorithms Quiz",
+            "type": "focus",
+            "taskId": "task_1783059880371",
+            "priority": "Medium"
+          }
+        ],
+        "tips": [
+          "Tackle high-priority deadline tasks early in your day.",
+          "Take regular 5-10 minute breaks between intense sprints."
+        ]
+      }
+    ]
+  ],
+  "analytics": [
+    [
+      "demo_user_123",
+      {
+        "dailyScore": 85,
+        "weeklyScore": 88,
+        "completedTasks": 14,
+        "pendingTasks": 4,
+        "overdueTasks": 1,
+        "streaks": {
+          "current": 5,
+          "weekly": 3,
+          "longest": 12
+        },
+        "badges": [
+          "Early Bird",
+          "Deadline Slayer",
+          "Focus Master",
+          "AI Explorer"
+        ]
+      }
+    ]
+  ]
+}

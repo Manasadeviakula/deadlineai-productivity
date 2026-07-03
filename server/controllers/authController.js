@@ -1,6 +1,6 @@
 import jwt from 'jsonwebtoken';
 import { config } from '../config/config.js';
-import { db, isMockDB, mockDB } from '../firebase/firebaseAdmin.js';
+import { db, isMockDB, mockDB, saveMockDB } from '../firebase/firebaseAdmin.js';
 
 export const authController = {
   async register(req, res) {
@@ -16,6 +16,7 @@ export const authController = {
 
     if (isMockDB) {
       mockDB.users.set(uid, userData);
+      saveMockDB();
     } else {
       await db.collection('Users').doc(uid).set(userData);
     }
