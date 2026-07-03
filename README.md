@@ -2,9 +2,6 @@
 
 > **The Last-Minute Life Saver**  
 > A production-ready, full-stack AI-powered productivity companion built for hackathons to proactively help users plan, prioritize, breakdown, and complete tasks before deadlines are missed.
-> 
-> 🔗 **Live Demo:** 
-
 [![React](https://img.shields.io/badge/Frontend-React%2018%20%2B%20Vite-blue)](https://react.dev/)
 [![Tailwind CSS](https://img.shields.io/badge/Styling-Tailwind%20CSS-38bdf8)](https://tailwindcss.com/)
 [![Node.js](https://img.shields.io/badge/Backend-Node.js%20%2B%20Express-green)](https://nodejs.org/)
