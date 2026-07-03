@@ -20,10 +20,38 @@ export const taskController = {
     const userId = req.user.uid;
     const { title, description, deadline, priority, estimatedHours, category } = req.body;
 
+    const trimmedTitle = (title || '').trim();
+    if (!trimmedTitle) {
+      return res.status(400).json({ success: false, message: 'Task title is required.' });
+    }
+
+    // Deduplication Check
+    let isDuplicate = false;
+    if (isMockDB) {
+      isDuplicate = Array.from(mockDB.tasks.values()).some(t => 
+        t.userId === userId && 
+        t.title.trim().toLowerCase() === trimmedTitle.toLowerCase() && 
+        t.deadline === deadline
+      );
+    } else {
+      const snapshot = await db.collection('Tasks')
+        .where('userId', '==', userId)
+        .where('title', '==', trimmedTitle)
+        .where('deadline', '==', deadline)
+        .get();
+      if (!snapshot.empty) {
+        isDuplicate = true;
+      }
+    }
+
+    if (isDuplicate) {
+      return res.status(409).json({ success: false, message: 'A task with this title and deadline already exists.' });
+    }
+
     const newTask = {
       id: `task_${Date.now()}`,
       userId,
-      title,
+      title: trimmedTitle,
       description: description || '',
       deadline: deadline || new Date(Date.now() + 86400000).toISOString(),
       priority: priority || 'Medium',

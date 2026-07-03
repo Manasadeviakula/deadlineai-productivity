@@ -77,14 +77,14 @@ export const AICoach = () => {
     <div className="flex flex-col h-[calc(100vh-7rem)] max-w-4xl mx-auto glass-panel rounded-3xl overflow-hidden border border-slate-200 dark:border-slate-800">
       
       {/* Coach Header */}
-      <div className="p-4 sm:p-6 bg-slate-900 text-white border-b border-slate-800 flex items-center justify-between">
+      <div className="p-4 sm:p-6 bg-slate-50 dark:bg-slate-900 text-slate-900 dark:text-white border-b border-slate-200 dark:border-slate-800 flex items-center justify-between">
         <div className="flex items-center gap-3">
           <div className="h-11 w-11 rounded-2xl gradient-btn flex items-center justify-center text-white text-xl shadow-lg shadow-indigo-500/30">
             <LuBot />
           </div>
           <div>
             <h2 className="font-bold text-base gradient-text">Gemini AI Coach & Voice Assistant</h2>
-            <p className="text-xs text-slate-400">Empathic productivity mentor</p>
+            <p className="text-xs text-slate-500 dark:text-slate-400">Empathic productivity mentor</p>
           </div>
         </div>
 
@@ -93,7 +93,7 @@ export const AICoach = () => {
           className={`p-3 rounded-2xl border transition-all ${
             isListening 
               ? 'bg-rose-600 text-white border-rose-500 animate-pulse' 
-              : 'bg-slate-800 text-indigo-400 border-slate-700 hover:bg-slate-700'
+              : 'bg-slate-100 dark:bg-slate-800 text-indigo-600 dark:text-indigo-400 border-slate-200 dark:border-slate-700 hover:bg-slate-200 dark:hover:bg-slate-700'
           }`}
           title="Voice Assistant"
         >
@@ -102,7 +102,7 @@ export const AICoach = () => {
       </div>
 
       {/* Messages Scroll Area */}
-      <div className="flex-1 overflow-y-auto p-4 sm:p-6 space-y-4 bg-slate-950/40">
+      <div className="flex-1 overflow-y-auto p-4 sm:p-6 space-y-4 bg-slate-50/30 dark:bg-slate-950/40">
         {messages.map((m, idx) => (
           <motion.div
             key={idx}
@@ -118,14 +118,14 @@ export const AICoach = () => {
             <div className={`max-w-[80%] p-4 rounded-2xl text-xs sm:text-sm leading-relaxed whitespace-pre-line ${
               m.sender === 'user'
                 ? 'bg-indigo-600 text-white rounded-tr-none'
-                : 'bg-slate-800/90 text-slate-100 border border-slate-700/60 rounded-tl-none'
+                : 'bg-slate-100 dark:bg-slate-800/90 text-slate-800 dark:text-slate-100 border border-slate-200 dark:border-slate-700/60 rounded-tl-none'
             }`}>
               {m.text}
             </div>
           </motion.div>
         ))}
         {loading && (
-          <div className="flex items-center gap-2 text-xs text-indigo-400 p-2">
+          <div className="flex items-center gap-2 text-xs text-indigo-600 dark:text-indigo-400 p-2">
             <LuSparkles className="animate-spin text-lg" /> AI Coach is formulating response...
           </div>
         )}
@@ -133,13 +133,13 @@ export const AICoach = () => {
       </div>
 
       {/* Quick Starter Chips */}
-      <div className="px-4 py-2 bg-slate-900/60 border-t border-slate-800/60 flex items-center gap-2 overflow-x-auto">
+      <div className="px-4 py-2 bg-slate-50/80 dark:bg-slate-900/60 border-t border-slate-200 dark:border-slate-800/60 flex items-center gap-2 overflow-x-auto">
         <span className="text-[10px] uppercase font-semibold text-slate-500 shrink-0">Try Asking:</span>
         {quickPrompts.map((qp, idx) => (
           <button
             key={idx}
             onClick={() => handleSend(qp)}
-            className="px-3 py-1 rounded-xl bg-slate-800 hover:bg-indigo-900/50 text-slate-300 hover:text-indigo-200 text-xs shrink-0 border border-slate-700"
+            className="px-3 py-1 rounded-xl bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-indigo-900/50 text-slate-600 dark:text-slate-300 hover:text-slate-800 dark:hover:text-indigo-200 text-xs shrink-0 border border-slate-200 dark:border-slate-700"
           >
             {qp}
           </button>
@@ -147,13 +147,13 @@ export const AICoach = () => {
       </div>
 
       {/* Input Form */}
-      <form onSubmit={(e) => { e.preventDefault(); handleSend(); }} className="p-4 bg-slate-900 border-t border-slate-800 flex items-center gap-3">
+      <form onSubmit={(e) => { e.preventDefault(); handleSend(); }} className="p-4 bg-slate-50 dark:bg-slate-900 border-t border-slate-200 dark:border-slate-800 flex items-center gap-3">
         <input
           type="text"
           placeholder={isListening ? "Listening to your voice..." : "Ask your AI Coach for guidance or say commands..."}
           value={input}
           onChange={(e) => setInput(e.target.value)}
-          className="flex-1 px-4 py-3 rounded-2xl bg-slate-800/90 border border-slate-700 text-slate-100 text-sm focus:outline-none focus:border-indigo-500"
+          className="flex-1 px-4 py-3 rounded-2xl bg-white dark:bg-slate-800/90 border border-slate-200 dark:border-slate-700 text-slate-900 dark:text-slate-100 placeholder-slate-400 dark:placeholder-slate-500 text-sm focus:outline-none focus:border-indigo-500"
         />
         <button
           type="submit"

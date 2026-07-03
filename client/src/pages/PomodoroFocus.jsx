@@ -42,15 +42,15 @@ export const PomodoroFocus = () => {
         <h1 className="text-3xl font-extrabold gradient-text flex items-center justify-center gap-2">
           <LuTimer /> Pomodoro Focus Mode
         </h1>
-        <p className="text-xs text-slate-400 mt-1">Distraction-free environment engineered for peak cognitive performance</p>
+        <p className="text-xs text-slate-500 dark:text-slate-400 mt-1">Distraction-free environment engineered for peak cognitive performance</p>
       </div>
 
       {/* Mode Selectors */}
-      <div className="inline-flex p-1.5 rounded-2xl bg-slate-900/80 border border-slate-800 gap-2">
+      <div className="inline-flex p-1.5 rounded-2xl bg-slate-200/60 dark:bg-slate-900/80 border border-slate-300 dark:border-slate-800 gap-2">
         <button
           onClick={() => resetTimer('focus')}
           className={`px-5 py-2 rounded-xl text-xs font-semibold transition-colors ${
-            mode === 'focus' ? 'bg-indigo-600 text-white shadow-md' : 'text-slate-400 hover:text-white'
+            mode === 'focus' ? 'bg-indigo-600 text-white shadow-md' : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white'
           }`}
         >
           🎯 Deep Work (25m)
@@ -58,7 +58,7 @@ export const PomodoroFocus = () => {
         <button
           onClick={() => resetTimer('shortBreak')}
           className={`px-5 py-2 rounded-xl text-xs font-semibold transition-colors ${
-            mode === 'shortBreak' ? 'bg-amber-600 text-white shadow-md' : 'text-slate-400 hover:text-white'
+            mode === 'shortBreak' ? 'bg-amber-600 text-white shadow-md' : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white'
           }`}
         >
           ☕ Short Break (5m)
@@ -66,7 +66,7 @@ export const PomodoroFocus = () => {
         <button
           onClick={() => resetTimer('longBreak')}
           className={`px-5 py-2 rounded-xl text-xs font-semibold transition-colors ${
-            mode === 'longBreak' ? 'bg-emerald-600 text-white shadow-md' : 'text-slate-400 hover:text-white'
+            mode === 'longBreak' ? 'bg-emerald-600 text-white shadow-md' : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white'
           }`}
         >
           🌴 Long Rest (15m)
@@ -74,8 +74,8 @@ export const PomodoroFocus = () => {
       </div>
 
       {/* Main Clock Card */}
-      <div className="glass-panel-glow p-12 rounded-3xl bg-slate-900/90 border border-slate-800 shadow-2xl space-y-8 relative overflow-hidden">
-        <div className="text-7xl sm:text-8xl font-extrabold font-mono tracking-tighter text-white">
+      <div className="glass-panel-glow p-12 rounded-3xl bg-white dark:bg-slate-900/90 border border-slate-200 dark:border-slate-800 shadow-2xl space-y-8 relative overflow-hidden">
+        <div className="text-7xl sm:text-8xl font-extrabold font-mono tracking-tighter text-slate-900 dark:text-white">
           {formatTime(timeLeft)}
         </div>
 
@@ -88,7 +88,7 @@ export const PomodoroFocus = () => {
           </button>
           <button
             onClick={() => resetTimer()}
-            className="h-12 w-12 rounded-2xl bg-slate-800 text-slate-300 hover:text-white hover:bg-slate-700 flex items-center justify-center text-xl transition-colors"
+            className="h-12 w-12 rounded-2xl bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white hover:bg-slate-200 dark:hover:bg-slate-750 flex items-center justify-center text-xl transition-colors"
             title="Reset Timer"
           >
             <LuRotateCcw />

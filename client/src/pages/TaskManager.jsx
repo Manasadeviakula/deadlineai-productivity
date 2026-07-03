@@ -9,7 +9,8 @@ import {
   LuClock, 
   LuTrash2, 
   LuCalendar,
-  LuTag
+  LuTag,
+  LuPenLine
 } from 'react-icons/lu';
 import { motion, AnimatePresence } from 'framer-motion';
 import { TaskModal } from '../components/TaskModal';
@@ -104,7 +105,7 @@ export const TaskManager = () => {
                 animate={{ opacity: 1, scale: 1 }}
                 exit={{ opacity: 0, scale: 0.95 }}
                 className={`glass-panel p-5 rounded-3xl border transition-all flex flex-col justify-between ${
-                  isCompleted ? 'opacity-60 bg-slate-900/30 border-slate-800' : 'border-slate-200/80 dark:border-slate-800/80 hover:border-indigo-500/40'
+                  isCompleted ? 'opacity-60 bg-slate-200/30 dark:bg-slate-900/30 border-slate-200 dark:border-slate-800' : 'border-slate-200/80 dark:border-slate-800/80 hover:border-indigo-500/40'
                 }`}
               >
                 <div>
@@ -118,10 +119,10 @@ export const TaskManager = () => {
                     </span>
 
                     <div className="flex items-center gap-1">
-                      <button onClick={() => handleEdit(t)} className="p-1.5 text-slate-400 hover:text-indigo-400 rounded-lg hover:bg-slate-800">
-                        <LuSparkles />
+                      <button onClick={() => handleEdit(t)} className="p-1.5 text-slate-400 hover:text-indigo-400 rounded-lg hover:bg-slate-200 dark:hover:bg-slate-800" title="Edit Task">
+                        <LuPenLine />
                       </button>
-                      <button onClick={() => deleteTask(t.id)} className="p-1.5 text-slate-400 hover:text-rose-400 rounded-lg hover:bg-slate-800">
+                      <button onClick={() => deleteTask(t.id)} className="p-1.5 text-slate-400 hover:text-rose-400 rounded-lg hover:bg-slate-200 dark:hover:bg-slate-800" title="Delete Task">
                         <LuTrash2 />
                       </button>
                     </div>
@@ -151,8 +152,11 @@ export const TaskManager = () => {
                 <div className="pt-4 border-t border-slate-200/60 dark:border-slate-800/60 flex items-center justify-between text-xs text-slate-500 dark:text-slate-400">
                   <div className="flex items-center gap-3">
                     <span className="flex items-center gap-1"><LuClock className="text-indigo-400" /> {t.estimatedHours}h</span>
-                    <span className={`px-2 py-0.5 rounded-md text-[10px] font-bold ${
-                      t.priority === 'Critical' ? 'bg-rose-500/10 text-rose-500' : 'bg-slate-800 text-slate-300'
+                    <span className={`px-2 py-0.5 rounded-md text-[10px] font-bold border ${
+                      t.priority === 'Critical' ? 'bg-rose-500/10 text-rose-600 dark:text-rose-400 border-rose-500/20' :
+                      t.priority === 'High' ? 'bg-orange-500/10 text-orange-600 dark:text-orange-400 border-orange-500/20' :
+                      t.priority === 'Medium' ? 'bg-amber-500/10 text-amber-600 dark:text-amber-400 border-amber-500/20' :
+                      'bg-slate-500/10 text-slate-600 dark:text-slate-400 border-slate-500/20'
                     }`}>
                       {t.priority}
                     </span>

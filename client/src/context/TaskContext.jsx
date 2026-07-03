@@ -62,6 +62,17 @@ export const TaskProvider = ({ children }) => {
   }, []);
 
   const addTask = async (taskData) => {
+    const trimmedTitle = (taskData.title || '').trim();
+    
+    // 1. Local frontend deduplication check
+    const isDuplicate = tasks.some(t => 
+      t.title.trim().toLowerCase() === trimmedTitle.toLowerCase() &&
+      t.deadline === taskData.deadline
+    );
+    if (isDuplicate) {
+      throw new Error('A task with this title and deadline already exists.');
+    }
+
     try {
       const res = await api.post('/tasks', taskData);
       if (res.data.success) {
@@ -69,9 +80,17 @@ export const TaskProvider = ({ children }) => {
         return res.data.task;
       }
     } catch (err) {
+      // Propagate API response errors (e.g. 409 Conflict, 400 Bad Request)
+      if (err.response && err.response.data && err.response.data.message) {
+        throw new Error(err.response.data.message);
+      }
+      
+      // Fallback only for network errors
+      console.warn("API task creation failed (network), falling back to local task:", err.message);
       const newTask = {
         id: `task_local_${Date.now()}`,
         ...taskData,
+        title: trimmedTitle,
         status: 'pending',
         createdAt: new Date().toISOString()
       };

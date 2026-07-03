@@ -1,0 +1,45 @@
+{
+  "users": [],
+  "tasks": [
+    [
+      "task_1783071206338",
+      {
+        "id": "task_1783071206338",
+        "userId": "test_user_abc",
+        "title": "Complete Math Assignment",
+        "description": "Solve chapter 4 exercises",
+        "deadline": "2026-07-04T10:00:00Z",
+        "priority": "High",
+        "estimatedHours": 2,
+        "status": "pending",
+        "category": "College",
+        "createdAt": "2026-07-03T09:33:26.338Z"
+      }
+    ]
+  ],
+  "plans": [],
+  "schedules": [],
+  "analytics": [
+    [
+      "demo_user_123",
+      {
+        "dailyScore": 85,
+        "weeklyScore": 88,
+        "completedTasks": 14,
+        "pendingTasks": 4,
+        "overdueTasks": 1,
+        "streaks": {
+          "current": 5,
+          "weekly": 3,
+          "longest": 12
+        },
+        "badges": [
+          "Early Bird",
+          "Deadline Slayer",
+          "Focus Master",
+          "AI Explorer"
+        ]
+      }
+    ]
+  ]
+}
